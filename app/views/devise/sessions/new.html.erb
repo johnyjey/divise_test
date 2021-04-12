@@ -1,0 +1,47 @@
+
+ 
+<div class="row">
+
+  <div class="col-md-8 text-center">
+<%#   
+    <br/><br/><br/><br/>
+    <img src="https://camo.githubusercontent.com/debcb0b244c5029ae11baf93c481d4ba980055df6e75abc23df12cc6f8cb71f1/68747470733a2f2f7261772e6769746875622e636f6d2f6865617274636f6d626f2f6465766973652f6d61737465722f6465766973652e706e67"
+    > %>
+    
+        <%= render partial:"shared/profile" %>
+  </div>
+  <div class="col-md-4">
+    <div class="card alert-success">
+      <div class="card-header"><h2>Log in</h2></div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control"%>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,49 @@
+ 
+<div class="row">
+
+  <div class="col-md-8 text-center">
+<%#   
+    <br/><br/><br/><br/>
+    <img src="https://camo.githubusercontent.com/debcb0b244c5029ae11baf93c481d4ba980055df6e75abc23df12cc6f8cb71f1/68747470733a2f2f7261772e6769746875622e636f6d2f6865617274636f6d626f2f6465766973652f6d61737465722f6465766973652e706e67"
+    > %>
+    
+        <%= render partial:"shared/profile" %>
+  </div>
+  <div class="col-md-4">
+    <div class="card alert-info">
+      <div class="card-header"><h2>Sign up</h2></div>
+      <div class="card-body">
+       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter Valid email", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" , placeholder: "Enter password", class:"form-control"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Enter password", class:"form-control" %>
+        </div>
+<br/>
+        <div class="actions">
+          <%= f.submit "Sign up", class:"btn btn-success pull-right" %>
+        </div>
+      <% end %>
+      </div>
+      <div class="card-footer">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
